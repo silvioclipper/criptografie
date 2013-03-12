@@ -8,14 +8,7 @@ Fisierele importante:  <br>
       </pre>
       
 Pentru a putea rula tema aveti nevoie de un server apache 2 instalat. <br>
-Urmatoarele fisiere au nevoie de drepturi de scriere( 0766)</br>
-	<pre>
-		diagramaCript.png
-		diagramaMesaj.png
-		graficCript.png
-		graficMesaj.png
-	</pre>
-In aceste fisiere se salveaza graficele. Acestea pot fi schimbate la inceputul fisierului ajax.php.<br>
+Setati drepturi de scriere pentru folderul  <code>tmp</code> </br>
 
 Fisierul care contine textul pentru codat este text.txt
 

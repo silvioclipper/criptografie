@@ -31,14 +31,14 @@ switch ($_POST['action']) {
 		echo generateKey($alfabet);
 	break;
 	case "getKeySubst":
-		echo file_get_contents('key');
+		echo file_get_contents('tmp/key');
 	break;
 
 	case "genKeyTransp":
 		echo implode(' ',genTranspKey($_POST['keyLength']));
 	break;
 	case "getKeyTransp":
-		echo file_get_contents('transpKey');
+		echo file_get_contents('tmp/transpKey');
 	break;
 
 	case "getMsg":
@@ -46,14 +46,14 @@ switch ($_POST['action']) {
 
 	case "getCriptSubst":
 
-		$key = file_get_contents('key');
+		$key = file_get_contents('tmp/key');
 		$cript = generateCriptograma($mesaj,$key,$alfabet);
 		echo $cript;
 	break;
 
 	case "getCriptTransp":
 
-		$key = explode(" ",file_get_contents('transpKey'));
+		$key = explode(" ",file_get_contents('tmp/transpKey'));
 		$cript = genTranspCript($mesaj,$key);
 		echo $cript;
 	break;
@@ -70,8 +70,8 @@ switch ($_POST['action']) {
 	break;
 
 	case "getCriptChartSubst":
-		$cript = file_get_contents('criptograma');
-		$key = file_get_contents('key');
+		$cript = file_get_contents('tmp/criptograma');
+		$key = file_get_contents('tmp/key');
 		//////unlink($criptChart);
 		$probCript = generateSP($cript,$key);
 		
@@ -81,8 +81,8 @@ switch ($_POST['action']) {
 	break;
 
 	case "getCriptChartTransp":
-		$cript = file_get_contents('transCript');
-		$key = file_get_contents('transpKey');
+		$cript = file_get_contents('tmp/transCript');
+		$key = file_get_contents('tmp/transpKey');
 		//////unlink($criptChart);
 		$probCript = generateSP($cript,$alfabet);
 		
@@ -102,8 +102,8 @@ switch ($_POST['action']) {
 	break;
 
 	case "genDigramCriptSubst":
-		$cript = file_get_contents('criptograma');
-		$key = file_get_contents('key');
+		$cript = file_get_contents('tmp/criptograma');
+		$key = file_get_contents('tmp/key');
 		////unlink($digramaCript);
 		
 		$probDigrameCript = generateDP($cript,$key);
@@ -113,7 +113,7 @@ switch ($_POST['action']) {
 
 	break;
 	case "genDigramCriptTransp":
-		$cript = file_get_contents('transCript');
+		$cript = file_get_contents('tmp/transCript');
 		$key = $alfabet;
 		////unlink($digramaCript);
 		

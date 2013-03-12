@@ -116,8 +116,8 @@ function generateDigramsChart($diProb,$filename){
 function generateKey($alfabet){
 	$alfabet = str_split($alfabet);
 	shuffle($alfabet);
-	unlink("key");
-	file_put_contents("key",implode($alfabet));
+	unlink("tmp/key");
+	file_put_contents("tmp/key",implode($alfabet));
   //echo $alfabet;
 		return implode($alfabet);
 }
@@ -155,8 +155,8 @@ function generateCriptograma($mesaj,$key,$alfabet){
 		$criptograma[$i] = $key[strpos($alfabet,$mesaj[$i])];
 	
 	}
-	unlink("criptograma");
-	file_put_contents('criptograma',implode($criptograma));
+	unlink("tmp/criptograma");
+	file_put_contents('tmp/criptograma',implode($criptograma));
 	return implode($criptograma);
 }
 function genTranspKey($key_length){
@@ -165,7 +165,7 @@ function genTranspKey($key_length){
 		$key[$i]=$i;
 	}
 	shuffle($key);
-	file_put_contents("transpKey",implode(' ',$key));
+	file_put_contents("tmp/transpKey",implode(' ',$key));
 	return $key;
 }
 
@@ -182,7 +182,7 @@ function genTranspCript($mesaj,$key){
 		$cript = array_merge($cript,$temp2);
 		
 	}
-	file_put_contents('transCript',implode($cript));
+	file_put_contents('tmp/transCript',implode($cript));
 
 	return implode($cript);
 }	
